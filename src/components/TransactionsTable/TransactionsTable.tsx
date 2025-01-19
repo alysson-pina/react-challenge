@@ -10,13 +10,17 @@ import { sumTotalAmount } from "../../utils/calculations";
 import { useTotalAmounts } from "./useTotalAmounts";
 import { Info } from "../../icons/Info";
 import { Tooltip } from "../Tooltip";
+import { Search } from "../../icons/Search";
 
 interface Props {
   data: TransactionType[];
 }
 
 const COLUMNS = ['currency', 'amount', 'date', 'status'] as const;
-const ICONS = { 'amount': <Tooltip content={<StyledDiv>Hover over amount values</StyledDiv>}><Info /></Tooltip>};
+const ICONS = {
+  'currency': <Search />,
+  'amount': <Tooltip content={<StyledDiv>Hover over amount values</StyledDiv>}><Info /></Tooltip>
+};
 
 export const TransactionsTable = ({ data } : Props) => {
   const [searchWordMap, setSearchWordMap] = useState({ currency: '' });

@@ -5,12 +5,16 @@ import { Table } from "../Table/Table";
 import { Title, Wrapper } from "./styles";
 import { PlanetDetails } from "../PlanetDetails";
 import { Overlay } from "../Overlay";
+import { Search } from "../../icons/Search";
 
 interface Props {
   data: PlanetType[];
 }
 
 const COLUMNS = ['name', 'terrain', 'climate', 'population'] as const;
+const ICONS = Object.fromEntries(
+  COLUMNS.slice(0,3).map((column) => ([column, <Search />]))
+);
 
 export const PlanetsTable = ({ data } : Props) => {
   const [searchWord, setSearchWord] = useState({ name: '', terrain: '', climate: '' });
@@ -29,7 +33,7 @@ export const PlanetsTable = ({ data } : Props) => {
   return (
     <Wrapper>
       <Title>Planets</Title>
-      <Table columns={COLUMNS} data={data} onRowClick={handleRowClick} searchWords={searchWord} onSearch={handleSearch} />
+      <Table columns={COLUMNS} icons={ICONS} data={data} onRowClick={handleRowClick} searchWords={searchWord} onSearch={handleSearch} />
       <Overlay isVisible={!!selectedPlanet} onClose={closeOverlay}>
         {selectedPlanet && <PlanetDetails planet={selectedPlanet} />}
       </Overlay>
