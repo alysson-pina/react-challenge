@@ -1,0 +1,1 @@
+export { PlanetsTable } from './PlanetsTable';

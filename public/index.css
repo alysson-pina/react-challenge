@@ -1,0 +1,8 @@
+body, html {
+  background: url("stars-bg.jpg") center center;
+  width: 100%;
+  min-width: 320px;
+  font-family: "Droid Sans", arial, verdana, sans-serif !important;
+  font-weight: 700;
+  background-color: #000;
+}
