@@ -54,7 +54,6 @@ export const StyledTable = styled.table`
 
 export const StyledDiv = styled.div`
   ${FullWidth};
-
-  justify-content: space-between;
+  gap: 5px;
   flex-wrap: wrap;
 `;
