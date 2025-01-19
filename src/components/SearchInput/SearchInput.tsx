@@ -15,6 +15,9 @@ export const SearchInput = <T,>({ onSearch, searchWord, filterKey }: SearchInput
     <StyledInput
       type="text"
       value={searchWord}
+      aria-label="Search"
+      role='searchbox'
+      placeholder="Search..."
       onChange={handleChange}
     />
   );
